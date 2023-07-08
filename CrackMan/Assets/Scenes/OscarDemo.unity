@@ -1606,7 +1606,7 @@ MonoBehaviour:
   _tickTimeInternal: 0
   phase: 0
   ticking: 0
-  ghostSettings: {fileID: 0}
+  ghostSettings: {fileID: 11400000, guid: 6c66b9594268f604a959a4d67c328db5, type: 2}
 --- !u!4 &1040522448
 Transform:
   m_ObjectHideFlags: 0
@@ -1906,7 +1906,7 @@ GameObject:
   - component: {fileID: 1413790170}
   m_Layer: 0
   m_Name: Underlay
-  m_TagString: WallTilemap
+  m_TagString: DroppableTilemap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

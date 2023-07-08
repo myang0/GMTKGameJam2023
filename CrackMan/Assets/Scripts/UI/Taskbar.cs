@@ -28,7 +28,7 @@ public class Taskbar : MonoBehaviour
     {
         ghosts = new List<GameObject>();
 
-        _tilemap = GameObject.FindWithTag("WallTilemap").GetComponent<Tilemap>();
+        _tilemap = GameObject.FindWithTag("DroppableTilemap").GetComponent<Tilemap>();
         _camera = Camera.main;
 
         GridMovementManager.Instance.onGridMovementStart += HandleMovementStart;
