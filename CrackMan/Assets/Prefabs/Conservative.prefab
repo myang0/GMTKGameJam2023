@@ -114,6 +114,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridMovementController: {fileID: 3649494048959383588}
   isLeftTurner: 0
-  tilemap: {fileID: 0}
-  wallTileName: Textures-16_51
+  wallTileName: WallRuleTile
   facing: 0
