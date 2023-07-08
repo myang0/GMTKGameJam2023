@@ -5,40 +5,51 @@ using UnityEngine;
 
 public class CrackmanMovement : MonoBehaviour
 {
+    public GridMovementController gridMovementController;
     public List<Waypoint> waypoints;
     int _currentWaypointIndex = 0;
     Waypoint CurrentWaypoint => waypoints[_currentWaypointIndex];
-    public float speed = 1.0f;
+    public float epsilon = 0.01f;
     
     // Start is called before the first frame update
     void Start()
     {
-        MoveToWaypoint(waypoints[0]);
+        gridMovementController.onMovementStart += HandleMovementStart;
+        gridMovementController.onMovementComplete += HandleMovementComplete;
     }
-    
-    void FixedUpdate()
+
+    void HandleMovementStart()
     {
         if (_currentWaypointIndex >= waypoints.Count)
         {
             return;
         }
-        
         MoveToWaypoint(CurrentWaypoint);
-        
+    }
+    
+    void HandleMovementComplete()
+    { 
         if (IsAtWaypoint(CurrentWaypoint))
         {
             _currentWaypointIndex++;
         }
-
     }
 
     void MoveToWaypoint(Waypoint waypoint)
     {
-        // move toward next waypoint
-        transform.position = Vector3.MoveTowards(
-            transform.position, 
-            waypoint.transform.position, 
-            speed * Time.deltaTime);
+        // Check which direction we need to move in
+        GridMovementController.Direction dir = GridMovementController.Direction.Left;
+        float horizontalDist = waypoint.transform.position.x - transform.position.x;
+        float verticalDist = waypoint.transform.position.y - transform.position.y;
+        if (Mathf.Abs(horizontalDist) > Mathf.Abs(verticalDist))
+        {
+            dir = horizontalDist > 0 ? GridMovementController.Direction.Right : GridMovementController.Direction.Left;
+        }
+        else
+        {
+            dir = verticalDist > 0 ? GridMovementController.Direction.Up : GridMovementController.Direction.Down;
+        }
+        gridMovementController.Go(dir);
     }
     
     bool IsAtWaypoint(Waypoint waypoint)
@@ -46,6 +57,6 @@ public class CrackmanMovement : MonoBehaviour
         // check if we are close enough to the waypoint
         return Vector3.Distance(
             transform.position, 
-            waypoint.transform.position) < 0.1f;
+            waypoint.transform.position) < epsilon;
     }
 }
