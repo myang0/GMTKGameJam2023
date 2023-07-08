@@ -5,7 +5,6 @@ using UnityEngine.Tilemaps;
 
 public class KoopaMovement : MonoBehaviour
 {
-    
     public Tilemap tilemap;
     public string wallTileName = "Textures-16_51";
     
@@ -17,6 +16,12 @@ public class KoopaMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (tilemap == null)
+        {
+            GameObject tilemapObject = GameObject.Find("Tilemap");
+            tilemap = tilemapObject.GetComponent<Tilemap>();
+        }
+
         _originalFacing = facing;
 
         gridMovementController.onMovementStart += HandleMovementStart;

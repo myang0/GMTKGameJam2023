@@ -36,12 +36,11 @@ public class GridMovementController : MonoBehaviour
 
         _originalPosition = transform.position;
 
-        GridMovementManager.Instance.onGridMovementStart += () => onMovementStart.Invoke();
-        GridMovementManager.Instance.onGridReset += () => HandleGridReset();
+        GridMovementManager.Instance.onGridMovementStart += HandleMovementStart;
+        GridMovementManager.Instance.onGridReset += HandleGridReset;
     }
 
-    [Button]
-    public void InvokeMovementStart()
+    void HandleMovementStart()
     {
         onMovementStart.Invoke();
     }
@@ -51,6 +50,17 @@ public class GridMovementController : MonoBehaviour
         transform.position = _originalPosition;
         _destination = null;
         onMovementReset.Invoke();
+    }
+
+    [Button]
+    public void InvokeMovementStart()
+    {
+        onMovementStart.Invoke();
+    }
+
+    public void SetNewOriginalPosition(Vector3 newOriginalPosition)
+    {
+        _originalPosition = newOriginalPosition;
     }
 
     public enum Direction
@@ -100,4 +110,9 @@ public class GridMovementController : MonoBehaviour
         return destination;
     }
 
+    void OnDestroy()
+    {
+        GridMovementManager.Instance.onGridMovementStart -= HandleMovementStart;
+        GridMovementManager.Instance.onGridReset -= HandleGridReset;
+    }
 }
