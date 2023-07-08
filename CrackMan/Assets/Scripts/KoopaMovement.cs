@@ -4,25 +4,21 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class KoopaMovement : MonoBehaviour
+public class KoopaMovement : GhostMovement
 {
     Tilemap _tilemap;
     public string wallTileName = "Textures-16_51";
     
     public GridMovementController gridMovementController;
-    public GridMovementController.Direction facing;
-    public GhostAnimator ghostAnimator;
 
-    GridMovementController.Direction _originalFacing;
-
-    // Start is called before the first frame update
     void Start()
     {
-        _originalFacing = facing;
         _tilemap = GameObject.FindWithTag("WallTilemap").GetComponent<Tilemap>();
         gridMovementController.onMovementStart += HandleMovementStart;
         gridMovementController.onMovementComplete += HandleMovementComplete;
         gridMovementController.onMovementReset += HandleMovementReset;
+
+        BaseStart();
     }
     
     void HandleMovementStart()
@@ -43,7 +39,7 @@ public class KoopaMovement : MonoBehaviour
 
     void HandleMovementReset()
     {
-        SetFacing(_originalFacing);
+        SetFacing(originalFacing);
     }
     
     [Button]

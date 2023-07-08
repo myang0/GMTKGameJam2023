@@ -4,7 +4,7 @@ using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class TurnerMovement : MonoBehaviour
+public class TurnerMovement : GhostMovement
 {
     public GridMovementController gridMovementController;
     
@@ -13,15 +13,14 @@ public class TurnerMovement : MonoBehaviour
     Tilemap _tilemap;
     public string wallTileName = "Textures-16_51";
 
-    public GridMovementController.Direction facing;
-    GridMovementController.Direction _originalFacing;
     void Start()
     {
-        _originalFacing = facing;
         _tilemap = GameObject.FindWithTag("WallTilemap").GetComponent<Tilemap>();
         gridMovementController.onMovementStart += HandleMovementStart;
         gridMovementController.onMovementComplete += HandleMovementComplete;
         gridMovementController.onMovementReset += HandleMovementReset;
+
+        BaseStart();
     }
 
     void HandleMovementStart()
@@ -49,7 +48,7 @@ public class TurnerMovement : MonoBehaviour
     
     void HandleMovementReset()
     {
-        facing = _originalFacing;
+        facing = originalFacing;
     }
     
     GridMovementController.Direction GetLeftDirection(GridMovementController.Direction dir)
