@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db7e852c630503b4294d2865bfc50833, type: 3}
   m_Name: Level1GhostSettings
   m_EditorClassIdentifier: 
-  redGhosts: 2
-  blueGhosts: 2
-  greenGhosts: 2
+  redGhosts: 1
+  blueGhosts: 1
+  greenGhosts: 1

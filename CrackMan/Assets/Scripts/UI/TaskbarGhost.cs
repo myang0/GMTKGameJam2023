@@ -17,6 +17,8 @@ public class TaskbarGhost : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void Initialize(int ghosts)
     {
         remainingGhosts = ghosts;
+        countText.text = $"{remainingGhosts}";
+
         _maxGhosts = remainingGhosts;
     }
 
@@ -53,5 +55,11 @@ public class TaskbarGhost : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         
         remainingGhosts += addend;
         countText.text = $"{remainingGhosts}";
+    }
+
+    public void ClearGhostCount()
+    {
+        remainingGhosts = 0;
+        countText.text = "0";
     }
 }

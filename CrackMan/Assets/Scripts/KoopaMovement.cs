@@ -16,12 +16,6 @@ public class KoopaMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (_tilemap == null)
-        {
-            GameObject tilemapObject = GameObject.Find("Tilemap");
-            _tilemap = tilemapObject.GetComponent<Tilemap>();
-        }
-
         _originalFacing = facing;
         _tilemap = GameObject.FindWithTag("WallTilemap").GetComponent<Tilemap>();
         gridMovementController.onMovementStart += HandleMovementStart;

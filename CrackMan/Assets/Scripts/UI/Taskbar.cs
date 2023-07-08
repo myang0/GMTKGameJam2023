@@ -6,7 +6,13 @@ using UnityEngine.Tilemaps;
 public class Taskbar : MonoBehaviour
 {
     public RectTransform taskbarPanelTransform;
-    public List<TaskbarGhost> taskbarGhosts;
+
+    public TaskbarGhost greenTaskbarGhost;
+    public TaskbarGhost redTaskbarGhost;
+    public TaskbarGhost blueTaskbarGhost;
+
+    GhostSettings ghostSettings;
+
     public List<GameObject> ghosts;
 
     public bool hidden = false;
@@ -15,22 +21,24 @@ public class Taskbar : MonoBehaviour
     public GameObject currentGhost = null;
     public TaskbarGhost currentTaskbarGhost = null;
 
-    public Tilemap tilemap;
-
+    Tilemap _tilemap;
     Camera _camera;
 
     void Start()
     {
         ghosts = new List<GameObject>();
+
+        _tilemap = GameObject.FindWithTag("WallTilemap").GetComponent<Tilemap>();
         _camera = Camera.main;
 
         GridMovementManager.Instance.onGridMovementStart += HandleMovementStart;
         GridMovementManager.Instance.onGridReset += HandleGridReset;
 
-        foreach (TaskbarGhost tg in taskbarGhosts)
-        {
-            tg.Initialize(2);
-        }
+        ghostSettings = GridMovementManager.Instance.ghostSettings;
+
+        greenTaskbarGhost.Initialize(ghostSettings.greenGhosts);
+        redTaskbarGhost.Initialize(ghostSettings.redGhosts);
+        blueTaskbarGhost.Initialize(ghostSettings.blueGhosts);
     }
 
     void Update()
@@ -76,10 +84,9 @@ public class Taskbar : MonoBehaviour
 
         ghosts = new List<GameObject>();
 
-        foreach (TaskbarGhost taskbarGhost in taskbarGhosts)
-        {
-            taskbarGhost.AddToGhostCount(2);
-        }
+        greenTaskbarGhost.Initialize(ghostSettings.greenGhosts);
+        redTaskbarGhost.Initialize(ghostSettings.redGhosts);
+        blueTaskbarGhost.Initialize(ghostSettings.blueGhosts);
     }
 
     void InputLogic()
@@ -97,15 +104,34 @@ public class Taskbar : MonoBehaviour
 
     void ClickLogic()
     {
-        foreach (TaskbarGhost taskbarGhost in taskbarGhosts)
+        if (greenTaskbarGhost.hoveredOver && greenTaskbarGhost.remainingGhosts > 0)
         {
-            if (taskbarGhost.hoveredOver && taskbarGhost.remainingGhosts > 0)
-            {
-                draggingGhost = true;
+            draggingGhost = true;
 
-                currentGhost = taskbarGhost.HandleDrag();
-                currentTaskbarGhost = taskbarGhost;
-            }
+            currentGhost = greenTaskbarGhost.HandleDrag();
+            currentTaskbarGhost = greenTaskbarGhost;
+
+            return;
+        }
+
+        if (redTaskbarGhost.hoveredOver && redTaskbarGhost.remainingGhosts > 0)
+        {
+            draggingGhost = true;
+
+            currentGhost = redTaskbarGhost.HandleDrag();
+            currentTaskbarGhost = redTaskbarGhost;
+
+            return;
+        }
+
+        if (blueTaskbarGhost.hoveredOver && blueTaskbarGhost.remainingGhosts > 0)
+        {
+            draggingGhost = true;
+
+            currentGhost = blueTaskbarGhost.HandleDrag();
+            currentTaskbarGhost = blueTaskbarGhost;
+
+            return;
         }
     }
 
@@ -115,8 +141,8 @@ public class Taskbar : MonoBehaviour
             return;
         
         Vector3 mousePositionInWorld = _camera.ScreenToWorldPoint(Input.mousePosition);
-        Vector3Int cellPosOnMouse = tilemap.WorldToCell(mousePositionInWorld);
-        TileBase tileOnMouse = tilemap.GetTile(cellPosOnMouse);
+        Vector3Int cellPosOnMouse = _tilemap.WorldToCell(mousePositionInWorld);
+        TileBase tileOnMouse = _tilemap.GetTile(cellPosOnMouse);
         
         if (tileOnMouse == null || tileOnMouse.name == "Textures-16_51")
         {

@@ -119,7 +119,10 @@ public class GridMovementController : MonoBehaviour
 
     void OnDestroy()
     {
-        GridMovementManager.Instance.onGridMovementStart -= HandleMovementStart;
-        GridMovementManager.Instance.onGridReset -= HandleGridReset;
+        if (GridMovementManager.Instance.onGridMovementStart != null)
+            GridMovementManager.Instance.onGridMovementStart -= HandleMovementStart;
+
+        if (GridMovementManager.Instance.onGridReset != null)
+            GridMovementManager.Instance.onGridReset -= HandleGridReset;
     }
 }
