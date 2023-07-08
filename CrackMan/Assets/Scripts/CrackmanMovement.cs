@@ -49,7 +49,7 @@ public class CrackmanMovement : MonoBehaviour
         {
             dir = verticalDist > 0 ? GridMovementController.Direction.Up : GridMovementController.Direction.Down;
         }
-        gridMovementController.Go(dir);
+        gridMovementController.GoAdjacent(dir);
     }
     
     bool IsAtWaypoint(Waypoint waypoint)

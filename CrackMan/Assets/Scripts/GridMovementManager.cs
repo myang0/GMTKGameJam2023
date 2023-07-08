@@ -13,7 +13,7 @@ public class GridMovementManager : Singleton<GridMovementManager>
 
     // event to emit to notify that a grid movement has occurred
     public delegate void GridMovementDelegate();
-    public GridMovementDelegate onGridMovementStart;
+    public GridMovementDelegate onGridMovementStart = () => { };
 
     void Start()
     {
@@ -30,21 +30,6 @@ public class GridMovementManager : Singleton<GridMovementManager>
         }
     }
     
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        for (int x = 0; x < gridSize.x; x++)
-        {
-            for (int y = 0; y < gridSize.y; y++)
-            {
-                Vector3 pos = new Vector3(
-                    x * gridSize.x + gridOffset.x,
-                    y * gridSize.y + gridOffset.y,
-                    0
-                );
-                Gizmos.DrawWireCube(pos, new Vector3(gridSize.x, gridSize.y, 0));
-            }
-        }
-    }
+    
 
 }
