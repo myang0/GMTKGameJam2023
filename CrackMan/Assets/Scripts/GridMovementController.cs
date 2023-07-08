@@ -12,9 +12,10 @@ public class GridMovementController : MonoBehaviour
     
     public GridMovementManager.GridMovementDelegate onMovementStart;
     public GridMovementManager.GridMovementDelegate onMovementComplete;
+    
     void Start()
     {
-        GridMovementManager.Instance.onGridMovementStart += ()=>onMovementStart.Invoke();
+        GridMovementManager.Instance.onGridMovementStart += () => onMovementStart.Invoke();
     }
 
     [Button]
