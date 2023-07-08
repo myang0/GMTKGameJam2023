@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db2707084165884fb95d823146f944c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridMovementController: {fileID: 0}
+  gridMovementController: {fileID: 4613425979479728772}
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
