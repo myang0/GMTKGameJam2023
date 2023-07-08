@@ -19,6 +19,8 @@ public class GridMovementManager : Singleton<GridMovementManager>
     public Phase phase = Phase.Planning;
     public bool ticking = false;
 
+    public GhostSettings ghostSettings;
+
     void Start()
     {
         onGridMovementStart += () => Debug.Log("Grid Movement Ticked");

@@ -5,7 +5,6 @@ using UnityEngine.Tilemaps;
 
 public class KoopaMovement : MonoBehaviour
 {
-    
     Tilemap _tilemap;
     public string wallTileName = "Textures-16_51";
     
