@@ -6,6 +6,7 @@ TagManager:
   tags:
   - WallTilemap
   - DroppableTilemap
+  - Ghost
   layers:
   - Default
   - TransparentFX
