@@ -13,8 +13,8 @@ public class GridMovementManager : Singleton<GridMovementManager>
 
     // event to emit to notify that a grid movement has occurred
     public delegate void GridMovementDelegate();
-    public GridMovementDelegate onGridMovementStart;
-    public GridMovementDelegate onGridReset;
+    public GridMovementDelegate onGridMovementStart = () => {};
+    public GridMovementDelegate onGridReset = () => {};
 
     public Phase phase = Phase.Planning;
     public bool ticking = false;
