@@ -9,19 +9,32 @@ public class GridMovementController : MonoBehaviour
     public float speed = 5f;
     public float epsilon = 0.01f;
     Vector3? _destination;
+
+    Vector3 _originalPosition;
     
     public GridMovementManager.GridMovementDelegate onMovementStart;
     public GridMovementManager.GridMovementDelegate onMovementComplete;
+    public GridMovementManager.GridMovementDelegate onMovementReset;
     
     void Start()
     {
+        _originalPosition = transform.position;
+
         GridMovementManager.Instance.onGridMovementStart += () => onMovementStart.Invoke();
+        GridMovementManager.Instance.onGridReset += () => HandleGridReset();
     }
 
     [Button]
     public void InvokeMovementStart()
     {
         onMovementStart.Invoke();
+    }
+
+    void HandleGridReset()
+    {
+        transform.position = _originalPosition;
+        _destination = null;
+        onMovementReset.Invoke();
     }
 
     public enum Direction
