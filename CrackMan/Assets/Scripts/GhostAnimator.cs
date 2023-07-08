@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GhostAnimator : MonoBehaviour
 {
-    
     public Animator animator;
 
     public void SetFacing(GridMovementController.Direction dir)
