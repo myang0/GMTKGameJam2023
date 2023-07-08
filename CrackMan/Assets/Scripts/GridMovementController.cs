@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class GridMovementController : MonoBehaviour
 {
@@ -108,6 +109,12 @@ public class GridMovementController : MonoBehaviour
             _ => throw new ArgumentOutOfRangeException(nameof(dir), dir, null)
         };
         return destination;
+    }
+    
+    public TileBase GetAdjacentTile(Tilemap tilemap, Direction dir)
+    {
+        Vector3Int cellPosition = tilemap.WorldToCell(GetAdjacentPosition(dir));
+        return tilemap.GetTile(cellPosition);
     }
 
     void OnDestroy()
