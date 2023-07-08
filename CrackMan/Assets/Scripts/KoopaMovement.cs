@@ -11,11 +11,17 @@ public class KoopaMovement : MonoBehaviour
     
     public GridMovementController gridMovementController;
     public GridMovementController.Direction facing;
+
+    GridMovementController.Direction _originalFacing;
+
     // Start is called before the first frame update
     void Start()
     {
+        _originalFacing = facing;
+
         gridMovementController.onMovementStart += HandleMovementStart;
         gridMovementController.onMovementComplete += HandleMovementComplete;
+        gridMovementController.onMovementReset += HandleMovementReset;
     }
     
     void HandleMovementStart()
@@ -34,6 +40,11 @@ public class KoopaMovement : MonoBehaviour
             facing = GetOppositeDirection(facing);
         }
 
+    }
+
+    void HandleMovementReset()
+    {
+        facing = _originalFacing;
     }
 
     GridMovementController.Direction GetOppositeDirection(GridMovementController.Direction dir)

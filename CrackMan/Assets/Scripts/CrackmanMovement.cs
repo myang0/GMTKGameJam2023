@@ -16,6 +16,7 @@ public class CrackmanMovement : MonoBehaviour
     {
         gridMovementController.onMovementStart += HandleMovementStart;
         gridMovementController.onMovementComplete += HandleMovementComplete;
+        gridMovementController.onMovementReset += HandleMovementReset;
     }
 
     void HandleMovementStart()
@@ -33,6 +34,11 @@ public class CrackmanMovement : MonoBehaviour
         {
             _currentWaypointIndex++;
         }
+    }
+
+    void HandleMovementReset()
+    {
+        _currentWaypointIndex = 0;
     }
 
     void MoveToWaypoint(Waypoint waypoint)
