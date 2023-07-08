@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 public class KoopaMovement : MonoBehaviour
 {
     
-    public Tilemap tilemap;
+    Tilemap _tilemap;
     public string wallTileName = "Textures-16_51";
     
     public GridMovementController gridMovementController;
@@ -18,7 +18,7 @@ public class KoopaMovement : MonoBehaviour
     void Start()
     {
         _originalFacing = facing;
-
+        _tilemap = GameObject.FindWithTag("WallTilemap").GetComponent<Tilemap>();
         gridMovementController.onMovementStart += HandleMovementStart;
         gridMovementController.onMovementComplete += HandleMovementComplete;
         gridMovementController.onMovementReset += HandleMovementReset;
@@ -26,20 +26,17 @@ public class KoopaMovement : MonoBehaviour
     
     void HandleMovementStart()
     {
-        gridMovementController.GoAdjacent(facing);
-    }
-    
-    void HandleMovementComplete()
-    { 
         // turn around if we hit a wall
-        Vector3 aheadTilePos = gridMovementController.GetAdjacentPosition(facing);
-        Vector3Int aheadCellPos = tilemap.WorldToCell(aheadTilePos);
-        TileBase aheadTile = tilemap.GetTile(aheadCellPos);
+        TileBase aheadTile = gridMovementController.GetAdjacentTile(_tilemap, facing);
         if (aheadTile && aheadTile.name == wallTileName)
         {
             facing = GetOppositeDirection(facing);
         }
-
+        gridMovementController.GoAdjacent(facing);
+    }
+    
+    void HandleMovementComplete()
+    {
     }
 
     void HandleMovementReset()
