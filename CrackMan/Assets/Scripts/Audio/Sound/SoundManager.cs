@@ -18,6 +18,8 @@ public class SoundManager : MonoBehaviour {
     } else {
       _instance = this;
     }
+
+    DontDestroyOnLoad(gameObject);
   }
 
   public void PlaySound(Sound sound, float volumeScaling = 1.0f, float pitchScaling = 1.0f, float minPitch = 0.75f, float maxPitch = 1.25f) {
