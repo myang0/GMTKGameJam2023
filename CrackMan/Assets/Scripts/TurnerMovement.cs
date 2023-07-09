@@ -12,6 +12,9 @@ public class TurnerMovement : GhostMovement
 
     Tilemap _tilemap;
     public string wallTileName = "Textures-16_51";
+    
+    public string collisionTag;
+    public float collisionRadius = 0.1f;
 
     void Start()
     {
@@ -29,7 +32,11 @@ public class TurnerMovement : GhostMovement
         for (int i = 0; i < 3; i++)
         {
             TileBase aheadTile = gridMovementController.GetAdjacentTile(_tilemap, facing);
-            if (aheadTile && aheadTile.name == wallTileName)
+            bool facingWall = aheadTile && aheadTile.name == wallTileName;
+            
+            Vector3 aheadPosition = gridMovementController.GetAdjacentPosition(facing);
+            bool facingCollision = Physics2D.OverlapCircle(aheadPosition, collisionRadius, LayerMask.GetMask(collisionTag));
+            if (facingWall || facingCollision)
             {
                 facing = isLeftTurner ? GetLeftDirection(facing) : GetRightDirection(facing);
             }
