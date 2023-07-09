@@ -6,13 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: 6f510ac679eae5547b5265daacff60f4
+  - enabled: 1
     path: Assets/Scenes/Koopa1Line.unity
     guid: 02ae111d076ae4e458bfd2740ecdabe4
   - enabled: 1
     path: Assets/Scenes/Koopa2Crossroad.unity
     guid: 8b0514b9a60949d41acd79be87e62e9f
   - enabled: 1
-    path: Assets/Scenes/koopa3twins.unity
+    path: Assets/Scenes/Koopa3twins.unity
     guid: 0e29e9c98cb30564b9985d47287926df
   - enabled: 1
     path: Assets/Scenes/Turner1.unity
