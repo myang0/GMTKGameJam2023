@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 964643687084496948}
   - component: {fileID: 5591349107062231841}
   m_Layer: 0
-  m_Name: Conservative
+  m_Name: RightTurner
   m_TagString: Ghost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

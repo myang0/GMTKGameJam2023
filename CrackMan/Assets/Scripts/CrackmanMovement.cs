@@ -43,7 +43,9 @@ public class CrackmanMovement : MonoBehaviour
 
     void MoveToWaypoint(Waypoint waypoint)
     {
-        // Check which direction we need to move in
+        if (!waypoint) return;
+
+            // Check which direction we need to move in
         GridMovementController.Direction dir = GridMovementController.Direction.Left;
         float horizontalDist = waypoint.transform.position.x - transform.position.x;
         float verticalDist = waypoint.transform.position.y - transform.position.y;
