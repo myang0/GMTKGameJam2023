@@ -22,6 +22,8 @@ public class UIButtons : MonoBehaviour
         GridMovementManager.Instance.HandlePlayButtonClicked();
         playButton.SetActive(false);
         pauseButton.SetActive(true);
+
+        SoundManager.Instance.PlaySound(Sound.ButtonClick);
     }
 
     public void OnPauseButtonClicked()
@@ -32,6 +34,8 @@ public class UIButtons : MonoBehaviour
         GridMovementManager.Instance.HandlePauseButtonClicked();
         playButton.SetActive(true);
         pauseButton.SetActive(false);
+
+        SoundManager.Instance.PlaySound(Sound.ButtonClick);
     }
 
     public void OnResetButtonClicked()
@@ -43,6 +47,8 @@ public class UIButtons : MonoBehaviour
         playButton.SetActive(true);
         pauseButton.SetActive(false);
         resetButton.SetActive(false);
+
+        SoundManager.Instance.PlaySound(Sound.StageReset, volumeScaling: 0.25f);
     }
 
     bool ButtonsNull()

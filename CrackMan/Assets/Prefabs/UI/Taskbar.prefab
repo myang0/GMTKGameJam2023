@@ -139,6 +139,7 @@ MonoBehaviour:
   draggingGhost: 0
   currentGhost: {fileID: 0}
   currentTaskbarGhost: {fileID: 0}
+  smokeParticles: {fileID: 6889794804706892225, guid: 43374de78649b6340a423f84066356c6, type: 3}
 --- !u!1 &6039005774236045301
 GameObject:
   m_ObjectHideFlags: 0

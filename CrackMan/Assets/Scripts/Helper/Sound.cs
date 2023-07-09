@@ -1,10 +1,8 @@
 public enum Sound {
-    Charge,
-    Throw,
-    StickyHit,
-    NonStickyHit,
-    BouncyHit,
-    Flap,
-    Quack,
-    HumanQuack
+    Death,
+    Click,
+    Spawn,
+    ButtonClick,
+    StageReset,
+    GhostReset
 }

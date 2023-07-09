@@ -20,6 +20,7 @@ public class CrackmanLife : MonoBehaviour
             GetComponent<SpriteRenderer>().enabled = false;
 
             dead = true;
+            SoundManager.Instance.PlaySound(Sound.Death, volumeScaling: 0.35f);
 
             GameObject.Find("NextLevelSelector").GetComponent<NextLevelSelector>().HandleKill();
         }
