@@ -10,10 +10,14 @@ public class CrackmanMovement : MonoBehaviour
     int _currentWaypointIndex = 0;
     Waypoint CurrentWaypoint => waypoints[_currentWaypointIndex];
     public float epsilon = 0.01f;
+
+    CrackmanAnimator _crackmanAnimator;
     
     // Start is called before the first frame update
     void Start()
     {
+        _crackmanAnimator = GetComponent<CrackmanAnimator>();
+
         gridMovementController.onMovementStart += HandleMovementStart;
         gridMovementController.onMovementComplete += HandleMovementComplete;
         gridMovementController.onMovementReset += HandleMovementReset;
@@ -58,6 +62,7 @@ public class CrackmanMovement : MonoBehaviour
         {
             dir = verticalDist > 0 ? GridMovementController.Direction.Up : GridMovementController.Direction.Down;
         }
+        _crackmanAnimator.SetFacing(dir);
         gridMovementController.GoAdjacent(dir);
     }
     
