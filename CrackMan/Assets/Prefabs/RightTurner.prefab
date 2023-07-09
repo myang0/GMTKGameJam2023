@@ -13,8 +13,10 @@ GameObject:
   - component: {fileID: 3649494048959383588}
   - component: {fileID: 964643687084496948}
   - component: {fileID: 5591349107062231841}
-  m_Layer: 3
-  m_Name: Conservative
+  - component: {fileID: -6551358454164676946}
+  - component: {fileID: 8767757100400833063}
+  m_Layer: 0
+  m_Name: RightTurner
   m_TagString: Ghost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 34587324d412940a79d530020c957dc0, type: 3}
+  m_Sprite: {fileID: -338667035, guid: bb2c4cea4a523cd47b9a9ee22b462158, type: 3}
   m_Color: {r: 0.3365966, g: 0.4985192, b: 0.8773585, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -116,10 +118,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facing: 0
   originalFacing: 0
-  ghostAnimator: {fileID: 0}
+  ghostAnimator: {fileID: -6551358454164676946}
   gridMovementController: {fileID: 3649494048959383588}
   isLeftTurner: 0
   wallTileName: WallRuleTile
+  collisionTag: Ghost
+  collisionRadius: 0.1
 --- !u!70 &5591349107062231841
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -155,6 +159,40 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!114 &-6551358454164676946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6509131316059244521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1e39f901769924449e85cff676d98eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 8767757100400833063}
+--- !u!95 &8767757100400833063
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6509131316059244521}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dff9a7e5a3aed1a46b21d6b9ff1fc26c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &4956572838722851380
 PrefabInstance:
   m_ObjectHideFlags: 0

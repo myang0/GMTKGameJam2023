@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8470589, g: 0.2784314, b: 0.33333334, a: 1}
+  m_Color: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -93,7 +93,7 @@ MonoBehaviour:
   hoveredOver: 0
   remainingGhosts: 2
   countText: {fileID: 4021087067028156721}
-  ghostPrefab: {fileID: 455787768383151404, guid: 49196b1565e8ccf489883acbce3fb443, type: 3}
+  ghostPrefab: {fileID: 986559718829936405, guid: 06505a4027975c8479aca53dd779072e, type: 3}
 --- !u!1 &2349844564699149560
 GameObject:
   m_ObjectHideFlags: 0

@@ -47,6 +47,9 @@ public class CrackmanMovement : MonoBehaviour
 
     void MoveToWaypoint(Waypoint waypoint)
     {
+        if (!waypoint) return;
+
+            // Check which direction we need to move in
         if (_currentWaypointIndex >= waypoints.Count)
             return;
 
