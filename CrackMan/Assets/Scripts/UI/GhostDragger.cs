@@ -8,6 +8,8 @@ public class GhostDragger : MonoBehaviour
     public Vector3 originalGhostPosition;
     public GameObject currentGhost;
 
+    public GameObject smokeParticles;
+
     Tilemap _tilemap;
     Camera _camera;
 
@@ -77,7 +79,7 @@ public class GhostDragger : MonoBehaviour
             currentGhost.GetComponent<GridMovementController>().SetNewOriginalPosition(positionInMaze);
 
             SoundManager.Instance.PlaySound(Sound.Spawn, volumeScaling: 0.75f);
-            // Instantiate(smokeParticles, new Vector3(positionInMaze.x, positionInMaze.y - 0.5f, 0), Quaternion.identity);
+            Instantiate(smokeParticles, new Vector3(positionInMaze.x, positionInMaze.y - 0.5f, 0), Quaternion.identity);
         }
 
         currentGhost = null;

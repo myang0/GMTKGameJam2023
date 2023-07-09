@@ -39,6 +39,7 @@ public class TurnerMovement : GhostMovement
             if (facingWall || facingCollision)
             {
                 facing = isLeftTurner ? GetLeftDirection(facing) : GetRightDirection(facing);
+                ghostAnimator.SetFacing(facing);
             }
             else
             {

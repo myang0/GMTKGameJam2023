@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -89,6 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8216217018155581854}
   - component: {fileID: 1405082740355439193}
+  - component: {fileID: 7105426754885170216}
   m_Layer: 5
   m_Name: Taskbar
   m_TagString: Untagged
@@ -140,6 +141,20 @@ MonoBehaviour:
   currentGhost: {fileID: 0}
   currentTaskbarGhost: {fileID: 0}
   smokeParticles: {fileID: 6889794804706892225, guid: 43374de78649b6340a423f84066356c6, type: 3}
+--- !u!114 &7105426754885170216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2889056631258443755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be5dc4bb1d1d5f8488e10a8681c13ef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalGhostPosition: {x: 0, y: 0, z: 0}
+  currentGhost: {fileID: 0}
 --- !u!1 &6039005774236045301
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,7 +222,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b6248898f56ce9f4ebe2a9801655356c, type: 3}
+  m_Sprite: {fileID: -662899308, guid: 6224776e014addd4ca586d71f631e3c0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -369,6 +384,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: GreenTaskbarGhost
       objectReference: {fileID: 0}
+    - target: {fileID: 2809566355241699482, guid: adee5dbe43a9b5243bdbd2d1df4ede3f, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809566355241699482, guid: adee5dbe43a9b5243bdbd2d1df4ede3f, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7204887565962502905, guid: adee5dbe43a9b5243bdbd2d1df4ede3f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1400813260, guid: 3fcd55c61855eba4a918d5443fda3a32, type: 3}
+    - target: {fileID: 8927849123205135420, guid: adee5dbe43a9b5243bdbd2d1df4ede3f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927849123205135420, guid: adee5dbe43a9b5243bdbd2d1df4ede3f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927849123205135420, guid: adee5dbe43a9b5243bdbd2d1df4ede3f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927849123205135420, guid: adee5dbe43a9b5243bdbd2d1df4ede3f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -401,6 +444,14 @@ PrefabInstance:
     - target: {fileID: 65520395004663902, guid: 38c9d40d53efa3c41ae449de94450842, type: 3}
       propertyPath: m_Name
       value: BlueTaskbarGhost
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852455973841549354, guid: 38c9d40d53efa3c41ae449de94450842, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852455973841549354, guid: 38c9d40d53efa3c41ae449de94450842, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6333383637219582639, guid: 38c9d40d53efa3c41ae449de94450842, type: 3}
       propertyPath: m_Pivot.x
@@ -486,6 +537,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7422537203736699972, guid: 38c9d40d53efa3c41ae449de94450842, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422537203736699972, guid: 38c9d40d53efa3c41ae449de94450842, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422537203736699972, guid: 38c9d40d53efa3c41ae449de94450842, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422537203736699972, guid: 38c9d40d53efa3c41ae449de94450842, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7665342075080944163, guid: 38c9d40d53efa3c41ae449de94450842, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1329499070, guid: 9ad3217848ddb784d87d1ef65f25a74e, type: 3}
+    - target: {fileID: 7665342075080944163, guid: 38c9d40d53efa3c41ae449de94450842, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7665342075080944163, guid: 38c9d40d53efa3c41ae449de94450842, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7665342075080944163, guid: 38c9d40d53efa3c41ae449de94450842, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -515,9 +598,49 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2366463302913835288}
     m_Modifications:
+    - target: {fileID: 773974705835270695, guid: 0a9cc4e09fe2a694db8198591dba89d1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -790472567, guid: e1a389ef022115a40b4bad4b2a76e940, type: 3}
+    - target: {fileID: 773974705835270695, guid: 0a9cc4e09fe2a694db8198591dba89d1, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 773974705835270695, guid: 0a9cc4e09fe2a694db8198591dba89d1, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 773974705835270695, guid: 0a9cc4e09fe2a694db8198591dba89d1, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1128815141221833000, guid: 0a9cc4e09fe2a694db8198591dba89d1, type: 3}
       propertyPath: m_Name
       value: RedTaskbarGhost
+      objectReference: {fileID: 0}
+    - target: {fileID: 4021087067028156721, guid: 0a9cc4e09fe2a694db8198591dba89d1, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4021087067028156721, guid: 0a9cc4e09fe2a694db8198591dba89d1, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053774609636085275, guid: 0a9cc4e09fe2a694db8198591dba89d1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053774609636085275, guid: 0a9cc4e09fe2a694db8198591dba89d1, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053774609636085275, guid: 0a9cc4e09fe2a694db8198591dba89d1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053774609636085275, guid: 0a9cc4e09fe2a694db8198591dba89d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4245846151382003461, guid: 0a9cc4e09fe2a694db8198591dba89d1, type: 3}
       propertyPath: m_Pivot.x
