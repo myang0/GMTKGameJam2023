@@ -21,6 +21,8 @@ public class Taskbar : MonoBehaviour
     public GameObject currentGhost = null;
     public TaskbarGhost currentTaskbarGhost = null;
 
+    public GameObject smokeParticles;
+
     Tilemap _tilemap;
     Camera _camera;
 
@@ -77,6 +79,11 @@ public class Taskbar : MonoBehaviour
 
     public void ClearGhosts()
     {
+        if (ghosts.Count > 0)
+        {
+            SoundManager.Instance.PlaySound(Sound.GhostReset, volumeScaling: 0.3f);
+        }
+
         foreach (GameObject ghost in ghosts)
         {
             Destroy(ghost);
@@ -107,6 +114,7 @@ public class Taskbar : MonoBehaviour
         if (greenTaskbarGhost.hoveredOver && greenTaskbarGhost.remainingGhosts > 0)
         {
             draggingGhost = true;
+            SoundManager.Instance.PlaySound(Sound.Click);
 
             currentGhost = greenTaskbarGhost.HandleDrag();
             currentTaskbarGhost = greenTaskbarGhost;
@@ -117,6 +125,7 @@ public class Taskbar : MonoBehaviour
         if (redTaskbarGhost.hoveredOver && redTaskbarGhost.remainingGhosts > 0)
         {
             draggingGhost = true;
+            SoundManager.Instance.PlaySound(Sound.Click);
 
             currentGhost = redTaskbarGhost.HandleDrag();
             currentTaskbarGhost = redTaskbarGhost;
@@ -127,6 +136,7 @@ public class Taskbar : MonoBehaviour
         if (blueTaskbarGhost.hoveredOver && blueTaskbarGhost.remainingGhosts > 0)
         {
             draggingGhost = true;
+            SoundManager.Instance.PlaySound(Sound.Click);
 
             currentGhost = blueTaskbarGhost.HandleDrag();
             currentTaskbarGhost = blueTaskbarGhost;
@@ -157,6 +167,8 @@ public class Taskbar : MonoBehaviour
             currentGhost.GetComponent<GridMovementController>().SetNewOriginalPosition(positionInMaze);
 
             ghosts.Add(currentGhost);
+            SoundManager.Instance.PlaySound(Sound.Spawn, volumeScaling: 0.75f);
+            Instantiate(smokeParticles, new Vector3(positionInMaze.x, positionInMaze.y - 0.5f, 0), Quaternion.identity);
         }
 
         currentGhost = null;
