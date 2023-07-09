@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3649494048959383588}
   - component: {fileID: 964643687084496948}
   - component: {fileID: 5591349107062231841}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Conservative
   m_TagString: Ghost
   m_Icon: {fileID: 0}
@@ -116,6 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facing: 0
   originalFacing: 0
+  ghostAnimator: {fileID: 0}
   gridMovementController: {fileID: 3649494048959383588}
   isLeftTurner: 0
   wallTileName: WallRuleTile
@@ -170,6 +171,10 @@ PrefabInstance:
       propertyPath: ghostMovement
       value: 
       objectReference: {fileID: 964643687084496948}
+    - target: {fileID: 4384550460405167239, guid: 8f99c8036f7ac8a4aa97f05fce72dea5, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8892767351611309468, guid: 8f99c8036f7ac8a4aa97f05fce72dea5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

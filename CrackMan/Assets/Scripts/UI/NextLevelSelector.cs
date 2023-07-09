@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NextLevelSelector : MonoBehaviour
 {
@@ -34,6 +35,6 @@ public class NextLevelSelector : MonoBehaviour
 
     public void OnNextLevelButtonPress()
     {
-        Debug.Log("Going to next level!");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 984268575904353947}
   - component: {fileID: 5799889460497500730}
   - component: {fileID: 4111770230533328393}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Koopa
   m_TagString: Ghost
   m_Icon: {fileID: 0}
@@ -119,9 +119,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facing: 1
   originalFacing: 0
-  wallTileName: WallRuleTile
-  gridMovementController: {fileID: 8888516729335304871}
   ghostAnimator: {fileID: 2699863510954597552}
+  wallTileName: WallRuleTile
+  collisionTag: 
+  collisionRadius: 0.1
+  gridMovementController: {fileID: 8888516729335304871}
 --- !u!114 &2699863510954597552
 MonoBehaviour:
   m_ObjectHideFlags: 0
